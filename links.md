@@ -28,8 +28,7 @@ http://www.cs.rit.edu/~jmg/courses/cgII/20041/slides/raytrace-assn-7.pdf
 
 # Caustics
 
-http://courses.cs.washington.edu/courses/cse557/08wi/projects/trace/extra/Backward.pdf (caustics using
-"illumination maps", not photon mapping)
+http://courses.cs.washington.edu/courses/cse557/08wi/projects/trace/extra/Backward.pdf (caustics using "illumination maps", not photon mapping)
 
 # Course notes
 

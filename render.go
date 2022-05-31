@@ -2,6 +2,7 @@ package main
 
 import (
 	"sync"
+	"fmt"
 )
 
 type Rendering struct {
@@ -88,6 +89,7 @@ func (s *LineScanner) Scan() <-chan scanLine {
 	ch := make(chan scanLine)
 	go func() {
 		for y := 0; y < s.vPixels; y++ {
+			fmt.Printf("\rScanning line: %v / %v", y, s.hPixels)
 			line := scanLine{
 				y:    y,
 				xMin: 0,

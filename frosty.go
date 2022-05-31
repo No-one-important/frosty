@@ -100,7 +100,7 @@ func main() {
 	fmt.Printf("Rendering...")
 	rendering := &Rendering{scene, *hpixels}
 	img := rendering.Render(*parallelism)
-	fmt.Println("done.")
+	fmt.Println("")
 
 	if *supersampling > 1 {
 		fmt.Printf("Downsampling supersampled image...")
@@ -113,7 +113,7 @@ func main() {
 
 	fmt.Printf("Tone mapping image...")
 	outImg := img.ToneMap()
-	fmt.Println("done.")
+	fmt.Println("done")
 
 	f, err := os.Create(*out)
 	if err != nil {

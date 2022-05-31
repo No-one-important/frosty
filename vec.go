@@ -52,7 +52,13 @@ func (v Vec3) Mag() float64 {
 
 // Normalize returns the normalized (unit) vector of v.
 func (v Vec3) Normalize() Vec3 {
-	return v.Mul(invSqrt(v.X*v.X + v.Y*v.Y + v.Z*v.Z))
+	x := fastInvSqrt(v.X*v.X + v.Y*v.Y + v.Z*v.Z)
+
+	return Vec3{
+		X: v.X * x,
+		Y: v.Y * x,
+		Z: v.Z * x,
+	}
 }
 
 // Cross returns the cross product of v and w.
@@ -78,13 +84,11 @@ func (v *Vec3) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
-func invSqrt(x float64) float64 {
-	// fast inverse square root
-	// https://en.wikipedia.org/wiki/Fast_inverse_square_root
-	xhalf := 0.5 * x
-	i := math.Float64bits(x)
-	i = 0x5f3759df - (i >> 1)
-	x = math.Float64frombits(i)
-	x = x * (1.5 - xhalf*x*x)
-	return x
+func fastInvSqrt(n float64) float64 {
+	n2, th := n*0.5, float64(1.5)
+    b := math.Float64bits(n)
+    b = 0x5FE6EB50C7B537A9 - (b >> 1)
+    f := math.Float64frombits(b)
+    f *= th - (n2 * f * f)
+    return f
 }

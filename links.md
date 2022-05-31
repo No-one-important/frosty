@@ -40,3 +40,8 @@ http://www.cs.cmu.edu/afs/cs/academic/class/15462-s09/www/lec/
 # Prior art
 
 https://github.com/marczych/RayTracer
+
+
+# Fast inverse square root
+
+https://medium.com/@adrien.za/fast-inverse-square-root-in-go-and-javascript-for-fun-6b891e74e5a8

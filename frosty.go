@@ -113,7 +113,7 @@ func main() {
 
 	fmt.Printf("Tone mapping image...")
 	outImg := img.ToneMap()
-	fmt.Println("done")
+	//fmt.Println("done")
 
 	f, err := os.Create(*out)
 	if err != nil {

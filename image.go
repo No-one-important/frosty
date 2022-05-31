@@ -3,6 +3,7 @@ package main
 import (
 	"image"
 	"image/color"
+	"fmt"
 )
 
 // An Image is a rectangular grid of Colors. I'm not using the image.Image
@@ -64,6 +65,7 @@ func (i *Image) ToneMap() *image.RGBA {
 	factor := float64(0xFF) / max
 	img := image.NewRGBA(image.Rect(0, 0, i.Width, i.Height))
 	for x := 0; x < i.Width; x++ {
+		fmt.Printf("\rTone mapping line: %v / %v", x, i.Width)
 		for y := 0; y < i.Height; y++ {
 			c := i.At(x, y)
 			rgba := color.RGBA{
